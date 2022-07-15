@@ -18,3 +18,25 @@ let divBoxes = document.querySelectorAll('.container > div');
 divBoxes.forEach(box => {
     box.addEventListener('mouseover', () => box.classList.add('addColor'));
 })
+
+// selection button event
+const selectionBtn = document.querySelector('.selectionBtn');
+selectionBtn.addEventListener('click', () => {
+    userSelection();
+})
+
+//prompts user 
+function userSelection() {
+    selection = prompt('Please select a grid size. You can enter any number between 1 - 100.');
+    if (selection >= 1 && selection <= 100) {
+        gridResize (selection);
+    } else return alert(selection + ' is not a valid entry. Please enter a number between 1 - 100.');
+
+//replaces grid
+function gridResize (selection) {
+    for (i=0; i<selection; i++) {
+        const newBox = document.createElement('div');
+        container.append(newBox);
+    }
+    console.log(selection);
+}
