@@ -12,13 +12,14 @@ function loop() {
 
 loop();
 
-// selects all divs that are children of container
-let divBoxes = document.querySelectorAll('.container > div');
 // uses forEach loop to add color to divBoxes on hover
-divBoxes.forEach(box => {
+function color() {
+    let divBoxes = document.querySelectorAll('.container > div');
+    divBoxes.forEach(box => {
     box.addEventListener('mouseover', () => box.classList.add('addColor'));
-})
-
+    })
+}
+color();
 // selection button event
 const selectionBtn = document.querySelector('.selectionBtn');
 selectionBtn.addEventListener('click', () => {
@@ -31,6 +32,7 @@ function userSelection() {
     if (selection >= 1 && selection <= 100) {
         gridResize (selection);
     } else return alert(selection + ' is not a valid entry. Please enter a number between 1 - 100.');
+}
 
 //replaces grid
 function gridResize (selection) {
@@ -39,4 +41,5 @@ function gridResize (selection) {
         container.append(newBox);
     }
     console.log(selection);
+    color();
 }
