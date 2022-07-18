@@ -22,8 +22,8 @@ divBoxes = document.querySelectorAll('.container > div');
 function color() {
     divBoxes = document.querySelectorAll('.container > div');
     divBoxes.forEach(box => {
-    box.addEventListener('mouseover', () => box.classList.add('addColor'));
-    })
+        box.addEventListener('mouseover', () => box.style.backgroundColor = 'black');
+        })
 }
 color();
 
