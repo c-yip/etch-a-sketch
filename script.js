@@ -48,6 +48,7 @@ function gridResize (selection) {
         container.append(newBox);
     }
     console.log(selection);
+    // makes sure grid rows and columns are equal so stays a square
     document.documentElement.style.setProperty('--grid-rows', selection);
     document.documentElement.style.setProperty('--grid-cols', selection);
     color();
