@@ -4,6 +4,8 @@ const container = document.querySelector('.container');
 /// select css variables
 window.getComputedStyle(document.documentElement).getPropertyValue('--grid-rows');
 window.getComputedStyle(document.documentElement).getPropertyValue('--grid-cols');
+window.getComputedStyle(document.documentElement).getPropertyValue('--box-color');
+
 
 // creates divBox and appends to container 16 times
 function loop() {
@@ -59,4 +61,26 @@ function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+// rainbow mode
+const rainbowBtn = document.querySelector('.rainbowBtn');
+rainbowBtn.addEventListener('click', () => {
+    colorRandom();
+})
+
+function colorRandom() {
+    document.documentElement.style.setProperty('--box-color', randomColor());
+    divBoxes = document.querySelectorAll('.container > div');
+    divBoxes.forEach(box => {
+    box.addEventListener('mouseover', () => box.classList.add('addRandom'));
+    })
+}
+
+function random(number){
+    return Math.floor(Math.random()*number);;
+}
+
+function randomColor(){
+    return 'rgb('+random(255)+','+random(255)+','+random(255)+')';    
 }
