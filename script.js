@@ -89,6 +89,9 @@ function randomColor(){
 const resetBtn = document.querySelector('.resetBtn');
 resetBtn.addEventListener('click', () => reset());
 function reset() {
-    removeAllChildNodes(container);
-    gridResize (selection);
+    if (selection >= 1 && selection <= 100) {
+        removeAllChildNodes(container);
+        gridResize (selection);
+    } else return alert('You have broke the reset button :(. Please click SELECT A SIZE.');
+
 }
