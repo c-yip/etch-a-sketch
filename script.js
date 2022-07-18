@@ -70,11 +70,10 @@ rainbowBtn.addEventListener('click', () => {
 })
 
 function colorRandom() {
-    document.documentElement.style.setProperty('--box-color', randomColor());
     divBoxes = document.querySelectorAll('.container > div');
     divBoxes.forEach(box => {
-    box.addEventListener('mouseover', () => box.classList.add('addRandom'));
-    })
+        box.addEventListener('mouseover', () => box.style.backgroundColor = randomColor());
+        })
 }
 
 function random(number){

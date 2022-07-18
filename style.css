@@ -1,7 +1,6 @@
 :root {
     --grid-rows: 16;
     --grid-cols: 16;
-    --box-color: red;
 }
 
 body {
@@ -29,8 +28,4 @@ body {
 
 .addColor {
     background-color: red;
-}
-
-.addRandom {
-    background-color: var(--box-color);
 }
