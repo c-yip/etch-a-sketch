@@ -1,6 +1,9 @@
 // variables 
 const body = document.body;
 const container = document.querySelector('.container');
+/// select css variables
+window.getComputedStyle(document.documentElement).getPropertyValue('--grid-rows');
+window.getComputedStyle(document.documentElement).getPropertyValue('--grid-cols');
 
 // creates divBox and appends to container 16 times
 function loop() {
@@ -21,6 +24,7 @@ function color() {
     })
 }
 color();
+
 // selection button event
 const selectionBtn = document.querySelector('.selectionBtn');
 selectionBtn.addEventListener('click', () => {
@@ -38,12 +42,14 @@ function userSelection() {
 //new grid
 function gridResize (selection) {
     removeAllChildNodes(container);
-    selection = selection * selection;
-    for (i=0; i<selection; i++) {
+    selectionSize = selection * selection;
+    for (i=0; i<selectionSize; i++) {
         const newBox = document.createElement('div');
         container.append(newBox);
     }
     console.log(selection);
+    document.documentElement.style.setProperty('--grid-rows', selection);
+    document.documentElement.style.setProperty('--grid-cols', selection);
     color();
 }
 
