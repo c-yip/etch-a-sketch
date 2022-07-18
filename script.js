@@ -1,6 +1,7 @@
 // variables 
 const body = document.body;
 const container = document.querySelector('.container');
+let selection = 16;
 /// select css variables
 window.getComputedStyle(document.documentElement).getPropertyValue('--grid-rows');
 window.getComputedStyle(document.documentElement).getPropertyValue('--grid-cols');
@@ -86,7 +87,8 @@ function randomColor(){
 
 // reset btn
 const resetBtn = document.querySelector('.resetBtn');
-resetBtn.addEventListener('click', () => whiteBackground());
-function whiteBackground() {
-    container.style.backgroundColor = 'white';
+resetBtn.addEventListener('click', () => reset());
+function reset() {
+    removeAllChildNodes(container);
+    gridResize (selection);
 }
