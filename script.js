@@ -83,3 +83,10 @@ function random(number){
 function randomColor(){
     return 'rgb('+random(255)+','+random(255)+','+random(255)+')';    
 }
+
+// reset btn
+const resetBtn = document.querySelector('.resetBtn');
+resetBtn.addEventListener('click', () => whiteBackground());
+function whiteBackground() {
+    container.style.backgroundColor = 'white';
+}
